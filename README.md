@@ -19,7 +19,7 @@ First, you need to register and enter your email and password. Then you will aut
 
 <h2>Users</h2>
 
-
+```
 db.user.insert({
 	"_id":{"$oid":"5e64f393d6d5b431885711c0"},
 	"name":"Ed",
@@ -66,8 +66,10 @@ db.user.insert({
 	"image":"https://uploads4.wikiart.org/images/gustav-klimt.jpg!Portrait.jpg",
 	"subscribers":["name":"Ed","nickname":"Sheeran","email":"Sheeran@gmail.com","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR5bwNVHJYXhAZQFLQ5GPvqNw5nYvpzTkO_VYH1gHZnxGTWRg8Q&usqp=CAU"]
 })
-
+```
 <h2>Posts</h2>
+
+```
 db.post.insert({
 	"_id":{"$oid":"5e64f3b8d6d5b431885711c6"},
 	"authorEmail":"gJo@gmail.com",
@@ -196,3 +198,4 @@ db.post.insert({
 	"views":{"$numberInt":"0"},
 	"comments":[{"_id":{"$oid":"5e64f3b8d6d5b431885711c5"},"authorEmail":"Li@gmail.com","authorName":"Lira","authorNickname":"Li","time":"2020-04-06T03:50:00.000+09:00","authorimage":"https://uploads4.wikiart.org/images/gustav-klimt.jpg!Portrait.jpg","text":"i can be your friend"}]
 })
+```
