@@ -138,14 +138,14 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
@@ -305,7 +305,6 @@ fieldset {
   padding: 0;
   margin: 0;
   border: 0;
-  padding: 0;
 }
 
 legend {
@@ -470,7 +469,7 @@ mark,
 .blockquote-footer {
   display: block;
   font-size: 80%;
-  color: #6c757d;
+  color: black;
 }
 
 .blockquote-footer::before {
@@ -9918,7 +9917,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: black !important;
 }
 
 .text-black-50 {

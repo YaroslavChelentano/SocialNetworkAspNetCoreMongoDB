@@ -1,27 +1,72 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - QuarantineHub</title>
+    <title>@ViewData["Title"] - Kunst</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
-    </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+        .like-checkbox {
+            display: none;
+        }
+
+        .post {
+            background-color: white;
+        }
+
+        .comment-content {
+            background-color: #f0f0ed;
+        }
+
+
+        body {
+            padding-top: 70px;
+            background-color: #f0f0ed;
+        }
+
+        .header {
+            background-color: rgba(102,102,102,0.5);
+        }
+
+        .profile-Image {
+            display: block;
+            max-width: 70px;
+            max-height: 70px;
+            min-height: 70px;
+            min-width: 70px;
+            width: auto;
+            height: auto;
+            object-fit: cover
+        }
+
+        .post-text {
+            padding-left: 70px;
+        }
+
+        body {
+            background-image: url(https://obsidianchronicleslarp.com.au/wp-content/uploads/site-background.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #footercus {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 10px;
+            background: yellow;
+            color: black;
+            width: 100%;
+        }
+    </style>
+    <!-- The video -->
 </head>
-<body>
+<body class="body">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QuarantineHub</a>
+        <nav class="header navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3" style="background-color: rgba(0,0,0,0.8) !important; border: none !important">
+            <div class="header-nav container">
+                <img src="~/lib/resources/sitelogo1.png" height="60" width="120" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,10 +74,31 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a style="color: yellow !important" class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Go To Home Page</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a style="color: yellow !important" class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Profile">My Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: yellow !important" class="nav-link text-light" asp-area="" asp-controller="Users" asp-action="Index">Subscriptions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: yellow !important" class="nav-link text-light" asp-action="Register" asp-controller="Account">Create new account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: red !important; margin-left: 600px" class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://twitter.com/explore">
+                                <img src="~/lib/resources/twit.png" height="50" width="50" style="margin-left: 50px"
+                                     class="nav-link text-light">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.facebook.com/">
+                                <img src="~/lib/resources/face.png" height="50" width="50" style="margin-left: 20px"
+                                     class="nav-link text-light">
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -40,38 +106,17 @@
         </nav>
     </header>
     <div class="container">
-        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <div id="footercus">
+        &copy; Fight after COVID-19 
+    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - QuarantineHub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-        </script>
-    </environment>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

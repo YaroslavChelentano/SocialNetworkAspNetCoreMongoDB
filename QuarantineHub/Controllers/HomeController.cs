@@ -1,25 +1,43 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Quarantine.Entities;
+using MVC.Interfaces;
+using MVC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using QuarantineHub.Models;
 
-namespace QuarantineHub.Controllers
+namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+        private readonly ILogger<HomeController> _logger;
+        private readonly IBlogService _blogService;
+        private readonly IUserService _userService;
+
+        public HomeController(
+            ILogger<HomeController> logger,
+            IBlogService blogService,
+            IUserService userService)
+        {
+            _logger = logger;
+            _blogService = blogService;
+            _userService = userService;
+        }
+
+        [HttpGet]
+        [Authorize]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Posts", "Posts");
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+   
+        [Authorize]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

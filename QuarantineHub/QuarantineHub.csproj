@@ -1,15 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="StyleCop.Cache" />
+  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
     <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="NLog" Version="4.7.1" />
+    <PackageReference Include="NLog.Config" Version="4.7.1" />
+    <PackageReference Include="Unity" Version="5.11.4" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CovidSharp\CovidSharp.csproj" />
+    <ProjectReference Include="..\QuarantineHubBLL\QuarantineHubBLL.csproj" />
+    <ProjectReference Include="..\QuarantineHubDAL\QuarantineHubDAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
+  </ItemGroup>
+
+
 
 </Project>

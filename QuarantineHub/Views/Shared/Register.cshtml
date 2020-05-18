@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+
+@model SignUpViewModel
+
+
+
+    <section style="background: rgba(255,255,255,0.1); border-style: ridge; border-width: 1px; align-self: center; margin-top: 100px">
+        <div class="container-fluid">
+            <h2 style="color: yellow">Registration</h2>
+            <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+                <div class="validation" asp-validation-summary="ModelOnly" />
+                <div>
+                    <div class="form-group">
+                        <label style="color: white" asp-for="Email">Email</label>
+                        <input style="width: 300px" asp-for="Email" type="text" class="form-control" id="" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: white" asp-for="Password">Password</label>
+                        <input style="width: 300px" asp-for="Password" type="text" class="form-control" id="" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: white" asp-for="ConfirmPassword">Confirm Password</label>
+                        <input style="width: 300px" asp-for="ConfirmPassword" type="text" class="form-control" id="" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn-outline-danger" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>

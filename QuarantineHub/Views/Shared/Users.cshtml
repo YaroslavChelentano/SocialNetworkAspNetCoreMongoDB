@@ -1,0 +1,46 @@
+﻿@model IEnumerable<UserViewModel>
+@{
+    ViewData["Title"] = "Artists";
+}
+
+<script>
+    function deleteItem(form) {
+        $(form).parents('li').remove();
+    }
+</script>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>
+            <div style="border-style: groove; border-width: 1px; align-content: center;" class="row align-items-center">
+                <div class="col ml--2">
+                    <h4 style="color: white !important">
+                        <a style="color: white !important" asp-action="UserDetailsByEmail" asp-controller="Account" asp-route-authorEmail="@user.Email">@user.Name</a>
+                    </h4>
+                </div>
+                <div class="col-auto mr-2">
+                    @if (user.Email != User.Identity.Name)
+                    {
+                        @if (user.Subscribers.AsQueryable().Any(el => el.Email == User.Identity.Name))
+                        {
+                        <form asp-action="RemoveFriend" asp-controller="Artists" asp-route-userEmail="@user.Email">
+                            <button class="btn-outline-danger" type="submit">
+                                Delete from Subscribers
+                            </button>
+                        </form>
+                        }
+                        else
+                        {
+                        <form asp-action="Follow" asp-controller="Artists" asp-route-userEmail="@user.Email">
+                            <button class="btn-outline-danger" type="submit">
+                                Follow
+                            </button>
+                        </form>
+                        }
+                    }
+                </div>
+            </div>
+        </li>
+    }
+</ul>
