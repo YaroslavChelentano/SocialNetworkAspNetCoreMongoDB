@@ -199,3 +199,6 @@ db.post.insert({
 	"comments":[{"_id":{"$oid":"5e64f3b8d6d5b431885711c5"},"authorEmail":"Li@gmail.com","authorName":"Lira","authorNickname":"Li","time":"2020-04-06T03:50:00.000+09:00","authorimage":"https://uploads4.wikiart.org/images/gustav-klimt.jpg!Portrait.jpg","text":"i can be your friend"}]
 })
 ```
+<h1>Neo4j Graph</h1>
+
+![image](https://github.com/YaroslavChelentano/SocialNetworkAspNetCoreMongoDB/blob/master/graphScreen.png)
